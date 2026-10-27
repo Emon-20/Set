@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set - The Competitive Card Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu -->
+        <div id="menu-screen" class="screen active">
+            <h1 class="title">SET</h1>
+            <p class="subtitle">The multi-dimensional pattern recognition game</p>
+            
+            <div class="menu-container">
+                <div class="mode-selection">
+                    <h2>Select Game Mode</h2>
+                    <div class="btn-group">
+                        <button id="btn-vs-computer" class="menu-btn primary">Play vs Computer</button>
+                        <button id="btn-vs-friend" class="menu-btn secondary">Play vs Friend (Local)</button>
+                    </div>
+                </div>
+
+                <div id="level-selection" class="level-selection hidden">
+                    <h2 id="level-title">Select Level</h2>
+                    <p id="level-description" class="level-desc">Level description will appear here.</p>
+                    <div class="levels">
+                        <button class="level-btn" data-level="1">1</button>
+                        <button class="level-btn" data-level="2">2</button>
+                        <button class="level-btn" data-level="3">3</button>
+                        <button class="level-btn" data-level="4">4</button>
+                        <button class="level-btn" data-level="5">5</button>
+                    </div>
+                    <button id="btn-start-game" class="menu-btn start-btn" disabled>Start Game</button>
+                    <button id="btn-back" class="text-btn">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <header class="game-header">
+                <div class="score-container p1-score">
+                    <span class="player-name" id="p1-name">You</span>
+                    <span class="score-value" id="p1-score">0</span>
+                </div>
+                
+                <div class="center-info">
+                    <div class="level-indicator" id="current-level-display">Level 1</div>
+                    <div class="target-score" id="target-score-display">Target: 5</div>
+                    <div class="deck-count">Cards left: <span id="deck-count-value">81</span></div>
+                </div>
+
+                <div class="score-container p2-score">
+                    <span class="player-name" id="p2-name">Computer</span>
+                    <span class="score-value" id="p2-score">0</span>
+                </div>
+            </header>
+
+            <main class="board-container">
+                <div id="buzzer-message" class="buzzer-message hidden">
+                    <span id="buzzer-text">Player 1's Turn!</span>
+                    <div class="timer-bar">
+                        <div id="timer-fill" class="timer-fill"></div>
+                    </div>
+                </div>
+
+                <div id="board" class="board">
+                    <!-- Cards will be injected here by JS -->
+                </div>
+            </main>
+
+            <footer class="game-footer">
+                <button id="btn-find-set" class="action-btn hint-btn">No Set? (Deal 3)</button>
+                <div class="message-area" id="message-area"></div>
+                <button id="btn-quit" class="action-btn quit-btn">Quit</button>
+            </footer>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="game-over-title">Game Over!</h2>
+                <p id="game-over-message">You won the game!</p>
+                <div class="final-scores">
+                    <div id="final-p1">You: 0</div>
+                    <div id="final-p2">Computer: 0</div>
+                </div>
+                <button id="btn-play-again" class="menu-btn primary">Play Again</button>
+                <button id="btn-main-menu" class="menu-btn secondary">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
